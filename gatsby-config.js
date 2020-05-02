@@ -1,12 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: `CHANGE ME`,
+    title: `COMPANY NAME`,
     description: `DESCRIPTION TO CHANGE`,
     author: `@grahlie`,
-    keywords: 'SEO KEYWORDS CHANGE ME, COMMA SEPERATED'
+    keywords: "SEO KEYWORDS CHANGE ME, COMMA SEPERATED",
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-theme-ui`,
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -14,16 +19,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-bolier`,
         short_name: `grahlie`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`,
       },
