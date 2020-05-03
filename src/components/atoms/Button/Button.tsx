@@ -1,15 +1,20 @@
+import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { theme, ITheme } from '../Util/theme'
 
-interface Props extends ITheme {}
+interface ThemeProps extends ITheme {}
+interface Props {
+    variant: string,
+    children: object,
+  }
 
 const commonStyle = css`
     border-radius: 6px;
     cursor: pointer;
     display: block;
-    font-family: ${(props: Props) => props.theme.fonts.body};
+    font-family: ${(props: ThemeProps) => props.theme.fonts.body};
     text-decoration: none;
     text-align: center;
 
@@ -20,54 +25,54 @@ const commonStyle = css`
 
 const PrimaryButton = styled.a`
     ${commonStyle}
-    background: ${(props: Props) => props.theme.buttons.primary.background};
-    color: ${(props: Props) => props.theme.buttons.primary.text};
-    font-size: ${(props: Props) => props.theme.fontSizes.buttons[1]}px;
-    padding: ${(props: Props) => props.theme.space[2]}px;
+    background: ${(props: ThemeProps) => props.theme.buttons.primary.background};
+    color: ${(props: ThemeProps) => props.theme.buttons.primary.text};
+    font-size: ${(props: ThemeProps) => props.theme.fontSizes.buttons[1]}px;
+    padding: ${(props: ThemeProps) => props.theme.space[2]}px;
 
     &:hover {
-        color: ${(props: Props) => props.theme.buttons.primary.hoverText};
-        background: ${(props: Props) => props.theme.buttons.primary.hover};
+        color: ${(props: ThemeProps) => props.theme.buttons.primary.hoverText};
+        background: ${(props: ThemeProps) => props.theme.buttons.primary.hover};
     }
 `;
 const SecondaryButton = styled.a`
     ${commonStyle}
-    background: ${(props: Props) => props.theme.buttons.secondary.background};
-    color: ${(props: Props) => props.theme.buttons.secondary.text};
-    font-size: ${(props: Props) => props.theme.fontSizes.buttons[1]}px;
-    padding: ${(props: Props) => props.theme.space[2]}px;
+    background: ${(props: ThemeProps) => props.theme.buttons.secondary.background};
+    color: ${(props: ThemeProps) => props.theme.buttons.secondary.text};
+    font-size: ${(props: ThemeProps) => props.theme.fontSizes.buttons[1]}px;
+    padding: ${(props: ThemeProps) => props.theme.space[2]}px;
 
     &:hover {
-        color: ${(props: Props) => props.theme.buttons.secondary.hoverText};
-        background: ${(props: Props) => props.theme.buttons.secondary.hover};
+        color: ${(props: ThemeProps) => props.theme.buttons.secondary.hoverText};
+        background: ${(props: ThemeProps) => props.theme.buttons.secondary.hover};
     }
 `;
 const ErrorButton = styled.a`
     ${commonStyle}
-    background: ${(props: Props) => props.theme.buttons.error.background};
-    color: ${(props: Props) => props.theme.buttons.error.text};
-    font-size: ${(props: Props) => props.theme.fontSizes.buttons[1]}px;
-    padding: ${(props: Props) => props.theme.space[2]}px;
+    background: ${(props: ThemeProps) => props.theme.buttons.error.background};
+    color: ${(props: ThemeProps) => props.theme.buttons.error.text};
+    font-size: ${(props: ThemeProps) => props.theme.fontSizes.buttons[1]}px;
+    padding: ${(props: ThemeProps) => props.theme.space[2]}px;
 
     &:hover {
-        color: ${(props: Props) => props.theme.buttons.error.hoverText};
-        background: ${(props: Props) => props.theme.buttons.error.hover};
+        color: ${(props: ThemeProps) => props.theme.buttons.error.hoverText};
+        background: ${(props: ThemeProps) => props.theme.buttons.error.hover};
     }
 `;
 const SuccessButton = styled.a`
     ${commonStyle}
-    background: ${(props: Props) => props.theme.buttons.success.background};
-    color: ${(props: Props) => props.theme.buttons.success.text};
-    font-size: ${(props: Props) => props.theme.fontSizes.buttons[1]}px;
-    padding: ${(props: Props) => props.theme.space[2]}px;
+    background: ${(props: ThemeProps) => props.theme.buttons.success.background};
+    color: ${(props: ThemeProps) => props.theme.buttons.success.text};
+    font-size: ${(props: ThemeProps) => props.theme.fontSizes.buttons[1]}px;
+    padding: ${(props: ThemeProps) => props.theme.space[2]}px;
 
     &:hover {
-        color: ${(props: Props) => props.theme.buttons.success.hoverText};
-        background: ${(props: Props) => props.theme.buttons.success.hover};
+        color: ${(props: ThemeProps) => props.theme.buttons.success.hoverText};
+        background: ${(props: ThemeProps) => props.theme.buttons.success.hover};
     }
 `;
 
-const Button = ({variant, children}) => {
+const Button = ({variant, children} : Props) => {
     let ButtonComponent = null;
     switch(variant) {
         case 'Primary': 
