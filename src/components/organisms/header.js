@@ -2,7 +2,7 @@ import React from "react"
 import styled from "@emotion/styled";
 
 import Navigation from "../molecules/navigation"
-import Logotype from "../atoms/logotype"
+import Logotype from '../atoms/Logotype'
 
 const StyledNavigation = styled.div`
   margin: 0 auto;

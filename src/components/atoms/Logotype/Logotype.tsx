@@ -1,8 +1,13 @@
 import React from "react"
-import { Link } from "gatsby"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "@emotion/styled";
+
+interface Props {
+    siteTitle: string,
+    size: string,
+    position: string,
+}
 
 const StyledContainer = styled.div`
   width: ${props => (props.size === "large" ? "200px" : "80px")};
