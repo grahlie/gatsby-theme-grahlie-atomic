@@ -1,115 +1,142 @@
+/** @jsx jsx */
+
+import { useThemeUI } from 'theme-ui';
 import styled from "@emotion/styled";
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 
 interface Props {
-    themes: {
+    theme: {
         fonts: {
-            headings: string,
+            heading: string,
+        },
+        fontSizes: {
+            heading: object,
+        },
+        fontWeights: {
+            heading: object,
         },
         colors: {
             primary: string
         }
-    },
-    position: string,
+    }
 }
 
 const commonStyles = css`
     margin: 0;
     padding: 0;
-    font-family: ${(props: Props) => props.themes.fonts.headings};
-    font-weight: bold;
-    color: ${(props: Props) => props.themes.colors.primary};
+    font-family: ${(props: Props) => props.theme.fonts.heading};
+    font-weight: ${(props: Props) => props.theme.fontWeights.heading};
+    color: ${(props: Props) => props.theme.colors.primary};
     text-rendering: optimizeLegibility;
     word-break: keep-all;
 `;
 
 const Hero = styled.h1`
     ${commonStyles}
-    font-size: 54px;
+    font-size: ${(props: Props) => props.theme.fontSizes.heading[7]}px;
     line-height: 1.15;
-    text-align: ${(props: Props) => props.position || "center"};
 
     @media only screen and (max-width: 600px) {
-        font-size: 36px;
+        font-size: ${(props: Props) => props.theme.fontSizes.heading[6]}px;
         line-height: 1.2;
     }
 `;
 
-const h1 = styled.h1`
+const One = styled.h1`
     ${commonStyles}
-    font-size: 54px;
+    font-size: ${(props: Props) => props.theme.fontSizes.heading[6]}px;
     line-height: 1.15;
-    text-align: ${(props: Props) => props.position || "center"};
 
     @media only screen and (max-width: 600px) {
-        font-size: 36px;
+        font-size: ${(props: Props) => props.theme.fontSizes.heading[5]}px;
         line-height: 1.2;
     }
 `;
 
-const h2 = styled.h2`
+const Two = styled.h2`
     ${commonStyles}
-    font-size: 36px;
+    font-size: ${(props: Props) => props.theme.fontSizes.heading[5]}px;
     line-height: 1.333;
-    text-align: ${(props: Props) => props.position || "center"};
 
     @media only screen and (max-width: 600px) {
-        font-size: 24px;
+        font-size: ${(props: Props) => props.theme.fontSizes.heading[4]}px;
         line-height: 1.45;
     }
 `;
 
-const h3 = styled.h3`
+const Three = styled.h3`
     ${commonStyles}
-    font-size: 24px;
+    font-size: ${(props: Props) => props.theme.fontSizes.heading[4]}px;
     line-height: 1.45;
-    text-align: ${(props: Props) => props.position || "center"};
 
     @media only screen and (max-width: 600px) {
-        font-size: 18px;
+        font-size: ${(props: Props) => props.theme.fontSizes.heading[3]}px;
     }
 `;
 
-const h4 = styled.h4`
+const Four = styled.h4`
     ${commonStyles}
-    font-size: 18px;
+    font-size: ${(props: Props) => props.theme.fontSizes.heading[3]}px;
     line-height: 1.45;
-    text-align: ${(props: Props) => props.position || "center"};
 
     @media only screen and (max-width: 600px) {
-        font-size: 16px;
+        font-size: ${(props: Props) => props.theme.fontSizes.heading[2]}px;
     }
 `;
 
-const h5 = styled.h5`
+const Five = styled.h5`
     ${commonStyles}
-    font-size: 18px;
+    font-size: ${(props: Props) => props.theme.fontSizes.heading[2]}px;
     font-weight: normal;
     line-height: 1.45;
-    text-align: ${(props: Props) => props.position || "center"};
 
     @media only screen and (max-width: 600px) {
-        font-size: 16px;
+        font-size: ${(props: Props) => props.theme.fontSizes.heading[1]}px;
     }
 `;
 
-const h6 = styled.h6`
+const Six = styled.h6`
     ${commonStyles}
-    font-size: 16px;
+    font-size: ${(props: Props) => props.theme.fontSizes.heading[1]}px;
     line-height: 1.45;
-    text-align: ${(props: Props) => props.position || "center"};
 
     @media only screen and (max-width: 600px) {
-        font-size: 14px;
-    }
+        font-size: ${(props: Props) => props.theme.fontSizes.heading[0]}px;
+    } 
 `;
 
-export default {
-    Hero,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-};
+const Heading = ({variant, children}) => {
+    const context = useThemeUI();
+    const { theme } = context;
+
+    let HeaderComponent = null
+    switch(variant) {
+        case 'Hero': 
+            HeaderComponent = (theme, children) => (<Hero theme={theme}>{children}</Hero>);
+            break;
+        case 'One': 
+            HeaderComponent = (theme, children) => (<One theme={theme}>{children}</One>);
+            break;
+        case 'Two': 
+            HeaderComponent = (theme, children) => (<Two theme={theme}>{children}</Two>);
+            break;
+        case 'Three': 
+            HeaderComponent = (theme, children) => (<Three theme={theme}>{children}</Three>);
+            break;
+        case 'Four': 
+            HeaderComponent = (theme, children) => (<Four theme={theme}>{children}</Four>);
+            break;
+        case 'Five': 
+            HeaderComponent = (theme, children) => (<Five theme={theme}>{children}</Five>);
+            break;
+        case 'Six': 
+            HeaderComponent = (theme, children) => (<Six theme={theme}>{children}</Six>);
+            break;
+    }
+
+    return (
+        HeaderComponent(theme, children)
+    )
+}
+
+export default Heading

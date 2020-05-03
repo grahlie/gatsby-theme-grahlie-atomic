@@ -1,28 +1,47 @@
-import styled from '@emotion/styled'
+import { useThemeUI } from 'theme-ui';
+import styled from '@emotion/styled';
 
 interface Props {
   theme: {
       fonts: {
           body: string,
       },
+      fontSizes: {
+        body: object,
+      },
+      fontWeights: {
+        body: string,
+        bold: string,
+      },
+      lineHeights: {
+        body: string,
+      },
       colors: { 
-          primary: string
+          text: string
       }
   }
 }
 
-const Paragraph = styled.p`
-  line-height: 1.756;
-  font-size: 18px;
-  color: ${(props: Props) => props.theme.fonts.body};
-  font-family: ${(props: Props) => props.theme.colors.primary};
-  margin: 0 auto 35px;
-  width: 100%;
-  max-width: 680px;
+const StyledParagraph = styled.p`
+  color: ${(props: Props) => props.theme.colors.text};
+  font-family: ${(props: Props) => props.theme.fonts.body};
+  font-size: ${(props: Props) => props.theme.fontSizes.body[2]}px;
+  font-weight: ${(props: Props) => props.theme.fontWeights.body};
+  line-height: ${(props: Props) => props.theme.lineHeights.body};
+  text-rendering: optimizeLegibility;
 
   b {
-    font-weight: 800;
+    font-weight: ${(props: Props) => props.theme.fontWeights.bold};
   }
 `;
+
+const Paragraph = ({children}) => {
+  const context = useThemeUI();
+  const { theme } = context;
+
+  return (
+    <StyledParagraph theme={theme}>{children}</StyledParagraph>
+  )
+}
 
 export default Paragraph;
