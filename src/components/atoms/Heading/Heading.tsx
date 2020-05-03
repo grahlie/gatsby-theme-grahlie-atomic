@@ -1,25 +1,9 @@
-/** @jsx jsx */
-
-import { useThemeUI } from 'theme-ui';
 import styled from "@emotion/styled";
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 
-interface Props {
-    theme: {
-        fonts: {
-            heading: string,
-        },
-        fontSizes: {
-            heading: object,
-        },
-        fontWeights: {
-            heading: object,
-        },
-        colors: {
-            primary: string
-        }
-    }
-}
+import { theme, ITheme } from '../Util/theme'
+
+interface Props extends ITheme {}
 
 const commonStyles = css`
     margin: 0;
@@ -34,40 +18,40 @@ const commonStyles = css`
 const Hero = styled.h1`
     ${commonStyles}
     font-size: ${(props: Props) => props.theme.fontSizes.heading[7]}px;
-    line-height: 1.15;
+    line-height: ${(props: Props) => props.theme.lineHeights.heading[0]};
 
     @media only screen and (max-width: 600px) {
-        font-size: ${(props: Props) => props.theme.fontSizes.heading[6]}px;
-        line-height: 1.2;
+        font-size: ${(props: Props) => props.theme.fontSizes.heading[5]}px;
+        line-height: ${(props: Props) => props.theme.lineHeights.heading[0]};
     }
 `;
 
 const One = styled.h1`
     ${commonStyles}
     font-size: ${(props: Props) => props.theme.fontSizes.heading[6]}px;
-    line-height: 1.15;
+    line-height: ${(props: Props) => props.theme.lineHeights.heading[0]};
 
     @media only screen and (max-width: 600px) {
         font-size: ${(props: Props) => props.theme.fontSizes.heading[5]}px;
-        line-height: 1.2;
+        line-height: ${(props: Props) => props.theme.lineHeights.heading[1]};
     }
 `;
 
 const Two = styled.h2`
     ${commonStyles}
     font-size: ${(props: Props) => props.theme.fontSizes.heading[5]}px;
-    line-height: 1.333;
+    line-height: ${(props: Props) => props.theme.lineHeights.heading[2]};
 
     @media only screen and (max-width: 600px) {
         font-size: ${(props: Props) => props.theme.fontSizes.heading[4]}px;
-        line-height: 1.45;
+        line-height: ${(props: Props) => props.theme.lineHeights.heading[3]};
     }
 `;
 
 const Three = styled.h3`
     ${commonStyles}
     font-size: ${(props: Props) => props.theme.fontSizes.heading[4]}px;
-    line-height: 1.45;
+    line-height: ${(props: Props) => props.theme.lineHeights.heading[3]};
 
     @media only screen and (max-width: 600px) {
         font-size: ${(props: Props) => props.theme.fontSizes.heading[3]}px;
@@ -77,7 +61,7 @@ const Three = styled.h3`
 const Four = styled.h4`
     ${commonStyles}
     font-size: ${(props: Props) => props.theme.fontSizes.heading[3]}px;
-    line-height: 1.45;
+    line-height: ${(props: Props) => props.theme.lineHeights.heading[3]};
 
     @media only screen and (max-width: 600px) {
         font-size: ${(props: Props) => props.theme.fontSizes.heading[2]}px;
@@ -87,8 +71,8 @@ const Four = styled.h4`
 const Five = styled.h5`
     ${commonStyles}
     font-size: ${(props: Props) => props.theme.fontSizes.heading[2]}px;
+    line-height: ${(props: Props) => props.theme.lineHeights.heading[3]};
     font-weight: normal;
-    line-height: 1.45;
 
     @media only screen and (max-width: 600px) {
         font-size: ${(props: Props) => props.theme.fontSizes.heading[1]}px;
@@ -98,7 +82,7 @@ const Five = styled.h5`
 const Six = styled.h6`
     ${commonStyles}
     font-size: ${(props: Props) => props.theme.fontSizes.heading[1]}px;
-    line-height: 1.45;
+    line-height: ${(props: Props) => props.theme.lineHeights.heading[3]};
 
     @media only screen and (max-width: 600px) {
         font-size: ${(props: Props) => props.theme.fontSizes.heading[0]}px;
@@ -106,9 +90,6 @@ const Six = styled.h6`
 `;
 
 const Heading = ({variant, children}) => {
-    const context = useThemeUI();
-    const { theme } = context;
-
     let HeaderComponent = null
     switch(variant) {
         case 'Hero': 
@@ -135,7 +116,7 @@ const Heading = ({variant, children}) => {
     }
 
     return (
-        HeaderComponent(theme, children)
+        HeaderComponent(theme(), children)
     )
 }
 

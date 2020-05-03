@@ -1,26 +1,8 @@
-import { useThemeUI } from 'theme-ui';
 import styled from '@emotion/styled';
 
-interface Props {
-  theme: {
-      fonts: {
-          body: string,
-      },
-      fontSizes: {
-        body: object,
-      },
-      fontWeights: {
-        body: string,
-        bold: string,
-      },
-      lineHeights: {
-        body: string,
-      },
-      colors: { 
-          text: string
-      }
-  }
-}
+import { theme, ITheme } from '../Util/theme'
+
+interface Props extends ITheme {}
 
 const StyledParagraph = styled.p`
   color: ${(props: Props) => props.theme.colors.text};
@@ -36,11 +18,8 @@ const StyledParagraph = styled.p`
 `;
 
 const Paragraph = ({children}) => {
-  const context = useThemeUI();
-  const { theme } = context;
-
   return (
-    <StyledParagraph theme={theme}>{children}</StyledParagraph>
+    <StyledParagraph theme={theme()}>{children}</StyledParagraph>
   )
 }
 
