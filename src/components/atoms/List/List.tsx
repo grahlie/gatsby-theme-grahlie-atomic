@@ -2,6 +2,23 @@ import React from "react"
 import styled from "@emotion/styled";
 import { Link } from "gatsby"
 
+interface Props {
+    close: boolean,
+    links: object,
+}
+
+const List = ({ close, links } : Props) => {
+  const navigation = links.map((link, index) => (
+    <StyledSmallListItem key={index} onClick={close}>
+      <Link to={link.href}>{link.title}</Link>
+    </StyledSmallListItem>
+  ))
+
+  return <StyledList>{navigation}</StyledList>
+}
+
+export default List
+
 const StyledList = styled.ul`
   margin-left: 1.45rem;
   margin-right: 0;
@@ -41,16 +58,4 @@ const StyledSmallListItem = styled.li`
   > p {
     margin-bottom: calc(1.45rem / 2);
   }
-`
-
-const List = ({ close, links }) => {
-  const navigation = links.map((link, index) => (
-    <StyledSmallListItem key={index} onClick={close}>
-      <Link to={link.href}>{link.title}</Link>
-    </StyledSmallListItem>
-  ))
-
-  return <StyledList>{navigation}</StyledList>
-}
-
-export default List
+`;

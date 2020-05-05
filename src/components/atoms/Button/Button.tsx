@@ -8,7 +8,34 @@ interface ThemeProps extends ITheme {}
 interface Props {
     variant: string,
     children: object,
-  }
+}
+
+const Button = ({variant, children} : Props) => {
+    let ButtonComponent = null;
+    switch(variant) {
+        case 'Primary': 
+            ButtonComponent = (theme, children) => (<PrimaryButton theme={theme}>{children}</PrimaryButton>);
+            break;
+        case 'Secondary': 
+            ButtonComponent = (theme, children) => (<SecondaryButton theme={theme}>{children}</SecondaryButton>);
+            break;
+        case 'Error': 
+            ButtonComponent = (theme, children) => (<ErrorButton theme={theme}>{children}</ErrorButton>);
+            break;
+        case 'Success': 
+            ButtonComponent = (theme, children) => (<SuccessButton theme={theme}>{children}</SuccessButton>);
+            break;
+        default:
+            ButtonComponent = () => 'Variant dont exists';
+            break;
+    }
+
+    return (
+        ButtonComponent(theme(), children)
+    );
+}
+
+export default Button;
 
 const commonStyle = css`
     border-radius: 6px;
@@ -71,30 +98,3 @@ const SuccessButton = styled.a`
         background: ${(props: ThemeProps) => props.theme.buttons.success.hover};
     }
 `;
-
-const Button = ({variant, children} : Props) => {
-    let ButtonComponent = null;
-    switch(variant) {
-        case 'Primary': 
-            ButtonComponent = (theme, children) => (<PrimaryButton theme={theme}>{children}</PrimaryButton>);
-            break;
-        case 'Secondary': 
-            ButtonComponent = (theme, children) => (<SecondaryButton theme={theme}>{children}</SecondaryButton>);
-            break;
-        case 'Error': 
-            ButtonComponent = (theme, children) => (<ErrorButton theme={theme}>{children}</ErrorButton>);
-            break;
-        case 'Success': 
-            ButtonComponent = (theme, children) => (<SuccessButton theme={theme}>{children}</SuccessButton>);
-            break;
-        default:
-            ButtonComponent = () => 'Variant dont exists';
-            break;
-    }
-
-    return (
-        ButtonComponent(theme(), children)
-    );
-}
-
-export default Button;

@@ -14,12 +14,19 @@ const StyledNavigation = styled.div`
   }
 `
 
-const Header = ({ siteTitle, primaryColor, page, height }) => {
+const Header = ({ siteTitle, page, height }) => {
+  const links = [
+    {href: '/', title: 'Home'},
+    {href: '/', title: 'Home'},
+    {href: '/', title: 'Home'},
+    {href: '/', title: 'Home'},
+    {href: '/', title: 'Home'},
+  ]
   return (
     <header>
       <StyledNavigation height={height}>
         <Logotype position="fixed" siteTitle={siteTitle} />
-        <Navigation page={page} />
+        <Navigation page={page} links={links}/>
       </StyledNavigation>
     </header>
   )

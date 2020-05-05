@@ -10,6 +10,42 @@ interface Props {
     children: object,
 }
 
+const Heading = ({variant, children} : Props) => {
+    let HeaderComponent = null
+    switch(variant) {
+        case 'Hero': 
+            HeaderComponent = (theme, children) => (<Hero theme={theme}>{children}</Hero>);
+            break;
+        case 'One': 
+            HeaderComponent = (theme, children) => (<One theme={theme}>{children}</One>);
+            break;
+        case 'Two': 
+            HeaderComponent = (theme, children) => (<Two theme={theme}>{children}</Two>);
+            break;
+        case 'Three': 
+            HeaderComponent = (theme, children) => (<Three theme={theme}>{children}</Three>);
+            break;
+        case 'Four': 
+            HeaderComponent = (theme, children) => (<Four theme={theme}>{children}</Four>);
+            break;
+        case 'Five': 
+            HeaderComponent = (theme, children) => (<Five theme={theme}>{children}</Five>);
+            break;
+        case 'Six': 
+            HeaderComponent = (theme, children) => (<Six theme={theme}>{children}</Six>);
+            break;
+        default:
+            HeaderComponent = () => 'Variant dont exists';
+            break;
+    }
+
+    return (
+        HeaderComponent(theme(), children)
+    )
+}
+
+export default Heading
+
 const commonStyles = css`
     margin: 0;
     padding: 0;
@@ -93,39 +129,3 @@ const Six = styled.h6`
         font-size: ${(props: ThemeProps) => props.theme.fontSizes.heading[0]}px;
     } 
 `;
-
-const Heading = ({variant, children} : Props) => {
-    let HeaderComponent = null
-    switch(variant) {
-        case 'Hero': 
-            HeaderComponent = (theme, children) => (<Hero theme={theme}>{children}</Hero>);
-            break;
-        case 'One': 
-            HeaderComponent = (theme, children) => (<One theme={theme}>{children}</One>);
-            break;
-        case 'Two': 
-            HeaderComponent = (theme, children) => (<Two theme={theme}>{children}</Two>);
-            break;
-        case 'Three': 
-            HeaderComponent = (theme, children) => (<Three theme={theme}>{children}</Three>);
-            break;
-        case 'Four': 
-            HeaderComponent = (theme, children) => (<Four theme={theme}>{children}</Four>);
-            break;
-        case 'Five': 
-            HeaderComponent = (theme, children) => (<Five theme={theme}>{children}</Five>);
-            break;
-        case 'Six': 
-            HeaderComponent = (theme, children) => (<Six theme={theme}>{children}</Six>);
-            break;
-        default:
-            HeaderComponent = () => 'Variant dont exists';
-            break;
-    }
-
-    return (
-        HeaderComponent(theme(), children)
-    )
-}
-
-export default Heading

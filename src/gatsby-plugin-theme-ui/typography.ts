@@ -4,8 +4,8 @@ export const fonts = {
     monospace: 'Menlo, monospace',
 };
 export const fontSizes = {
-    body: [12, 14, 16, 20, 24, 32, 48, 64, 96],
-    heading: [14, 16, 18, 24, 36, 48, 54, 96],
+    body: [12, 14, 16, 18, 20, 24, 30, 36, 48, 60, 72],
+    heading: [16, 18, 20, 24, 30, 36, 48, 60, 72],
     buttons: [16, 18, 24, 36]
 };
 export const fontWeights = {

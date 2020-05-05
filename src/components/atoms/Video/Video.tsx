@@ -1,18 +1,12 @@
 import React from "react"
 import styled from "@emotion/styled";
 
-const StyledContainer = styled.div`
-  width: 100%;
-  overflow: hidden;
-  padding-top: 56.25%;
-  position: relative;
+interface Props {
+  videoUrl: string,
+  videoTitle: string,
+}
 
-  @media only screen and (max-width: 600px) {
-    width: 280px;
-  }
-`
-
-const Video = ({ videoUrl, videoTitle, ...props }) => (
+const Video = ({ videoUrl, videoTitle, ...props } : Props) => (
   <StyledContainer>
     <iframe
       src={videoUrl}
@@ -35,3 +29,14 @@ const Video = ({ videoUrl, videoTitle, ...props }) => (
 )
 
 export default Video
+
+const StyledContainer = styled.div`
+  width: 100%;
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+
+  @media only screen and (max-width: 600px) {
+    width: 280px;
+  }
+`

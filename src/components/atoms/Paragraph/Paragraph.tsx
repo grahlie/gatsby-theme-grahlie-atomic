@@ -9,6 +9,14 @@ interface Props {
   children: object,
 }
 
+const Paragraph = ({children} : Props) => {
+  return (
+    <StyledParagraph theme={theme()}>{children}</StyledParagraph>
+  )
+}
+
+export default Paragraph;
+
 const StyledParagraph = styled.p`
   color: ${(props: ThemeProps) => props.theme.colors.text};
   font-family: ${(props: ThemeProps) => props.theme.fonts.body};
@@ -21,11 +29,3 @@ const StyledParagraph = styled.p`
     font-weight: ${(props: ThemeProps) => props.theme.fontWeights.bold};
   }
 `;
-
-const Paragraph = ({children} : Props) => {
-  return (
-    <StyledParagraph theme={theme()}>{children}</StyledParagraph>
-  )
-}
-
-export default Paragraph;

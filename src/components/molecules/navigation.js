@@ -2,8 +2,8 @@ import React from "react"
 import Popup from "reactjs-popup"
 import styled from "@emotion/styled";
 
-import BurgerIcon from "../atoms/burgerIcon"
-import List from "../atoms/list"
+import Burger from "../atoms/Burger"
+import List from "../atoms/List"
 
 const StyledPopup = styled(Popup)`
   &-content {
@@ -35,7 +35,7 @@ const Navigation = ({ links }) => {
     <StyledPopup
       modal
       closeOnDocumentClick={false}
-      trigger={open => <BurgerIcon open={open} color="#fff" />}
+      trigger={open => <Burger open={open} />}
     >
       {close => <List close={close} links={links} />}
     </StyledPopup>
