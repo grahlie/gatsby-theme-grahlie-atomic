@@ -17,7 +17,7 @@ const Paragraph = ({children} : Props) => {
 
 export default Paragraph;
 
-const StyledParagraph = styled.p`
+export const StyledParagraph = styled.p`
   color: ${(props: ThemeProps) => props.theme.colors.text};
   font-family: ${(props: ThemeProps) => props.theme.fonts.body};
   font-size: ${(props: ThemeProps) => props.theme.fontSizes.body[2]}px;

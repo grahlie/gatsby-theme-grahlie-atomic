@@ -1,61 +1,26 @@
 import React from "react"
 import styled from "@emotion/styled";
-import { Link } from "gatsby"
 
+import { theme, ITheme } from '../Util/theme'
+
+interface ThemeProps extends ITheme {}
 interface Props {
-    close: boolean,
-    links: object,
+    children: object,
 }
 
-const List = ({ close, links } : Props) => {
-  const navigation = links.map((link, index) => (
-    <StyledSmallListItem key={index} onClick={close}>
-      <Link to={link.href}>{link.title}</Link>
-    </StyledSmallListItem>
-  ))
-
-  return <StyledList>{navigation}</StyledList>
-}
+const List = ({ children } : Props) => (
+    <StyledList theme={theme()}>{children}</StyledList>
+)
 
 export default List
 
 const StyledList = styled.ul`
-  margin-left: 1.45rem;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
-  list-style-position: outside;
-  list-style-image: none;
-  width: "100%";
-  display: block;
-  text-align: center;
-  position: relative;
-  top: 0px;
-`;
-
-const StyledSmallListItem = styled.li`
-  margin: 1rem 0px;
-  padding: 0.8rem 0;
-  font-size: 2rem;
-  list-style: outside none none;
-  cursor: pointer;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: "Bison-DemiBold", sans-serif;
-
-  a,
-  a:hover,
-  a:visited,
-  a:focus {
-    color: #fff;
-  }
-
-  > p {
-    margin-bottom: calc(1.45rem / 2);
-  }
+    display: block;
+    list-style-position: outside;
+    list-style-image: none;
+    margin: 0 0 ${(props: ThemeProps) => props.theme.space[3]}px ${(props: ThemeProps) => props.theme.space[3]}px;
+    padding: 0;
+    position: relative;
+    top: 0px;
+    width: 100%;
 `;

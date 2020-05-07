@@ -1,17 +1,17 @@
 import React from "react"
 import styled from "@emotion/styled";
 
-import Navigation from "../molecules/navigation"
+import Navigation from "../molecules/Navigation"
 import Logotype from '../atoms/Logotype'
 
-const StyledNavigation = styled.div`
-  margin: 0 auto;
-  max-width: 960;
-  height: ${props => props.height + "px"};
+const StyledHeaderContainer = styled.header`
+    margin: 0 auto;
+    max-width: 960px;
+    height: ${props => props.height + "px"};
 
-  @media only screen and (max-width: 600px) {
-    height: ${props => props.height / 2 + "px"};
-  }
+    @media only screen and (max-width: 600px) {
+        height: ${props => props.height / 2 + "px"};
+    }
 `
 
 const Header = ({ siteTitle, page, height }) => {
@@ -22,13 +22,12 @@ const Header = ({ siteTitle, page, height }) => {
     {href: '/', title: 'Home'},
     {href: '/', title: 'Home'},
   ]
+
   return (
-    <header>
-      <StyledNavigation height={height}>
+    <StyledHeaderContainer height={height}>
         <Logotype position="fixed" siteTitle={siteTitle} />
         <Navigation page={page} links={links}/>
-      </StyledNavigation>
-    </header>
+    </StyledHeaderContainer>
   )
 }
 
