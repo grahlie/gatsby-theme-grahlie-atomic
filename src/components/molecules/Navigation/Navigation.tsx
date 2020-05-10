@@ -8,12 +8,12 @@ import ListItem from '../../atoms/ListItem'
 import Link from '../../atoms/Link'
 
 interface Props {
-    links: object
+    links: Array<object>
 }
 
-const Navigation = ({ links } : Props) => {
-    const navigation = (close) => {
-        return links.map((link, index) => (
+const Navigation = ({ links }: Props) => {
+    const navigation = (close: boolean) => {
+        return links.map((link: object, index: number) => (
             <ListItem key={index} onClick={close}>
               <Link to={link.href}>{link.title}</Link>
             </ListItem>

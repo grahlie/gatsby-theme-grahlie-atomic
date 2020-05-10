@@ -4,18 +4,19 @@ import { css } from '@emotion/core';
 
 import { theme, ITheme } from '../Util/theme'
 
-interface ThemeProps extends ITheme {}
 interface Props {
     open: boolean,
 }
 
-const Burger = ({ open, ...props } : Props) => (
-    <StyledContainer className={open ? 'open' : 'closed'} {...props}>
-        <StyledBarOne theme={theme()} className={open ? 'open' : 'closed'} key="b1"/>
-        <StyledBarTwo theme={theme()} className={open ? 'open' : 'closed'} key="b2"/>
-        <StyledBarThree theme={theme()} className={open ? 'open' : 'closed'} key="b3"/>
-    </StyledContainer>
-)
+const Burger = ({ open, ...props } : Props) => {
+    return (
+        <StyledContainer className={open ? 'open' : 'closed'} {...props}>
+            <StyledBarOne theme={theme()} className={open ? 'open' : 'closed'} key="b1"/>
+            <StyledBarTwo theme={theme()} className={open ? 'open' : 'closed'} key="b2"/>
+            <StyledBarThree theme={theme()} className={open ? 'open' : 'closed'} key="b3"/>
+        </StyledContainer>
+    )
+}
 
 export default Burger
 
@@ -38,26 +39,26 @@ const commonBarStyle = css`
     margin: 6px 0;
     transition: 0.4s;
 `;
-const StyledBarOne = styled.div`
+const StyledBarOne = styled.div<ITheme>`
     ${commonBarStyle}
-    background: ${(props: ThemeProps) => props.theme.colors.primary};
+    background: ${(props: ITheme) => props.theme.colors.primary};
 
     &.open {
         -webkit-transform: rotate(-45deg) translate(-6px, 6px);
         transform: rotate(-45deg) translate(-6px, 6px);
     }
 `;
-const StyledBarTwo = styled.div`
+const StyledBarTwo = styled.div<ITheme>`
     ${commonBarStyle}
-    background: ${(props: ThemeProps) => props.theme.colors.primary};
+    background: ${(props: ITheme) => props.theme.colors.primary};
 
     &.open {
         opacity: 0;
     }
 `;
-const StyledBarThree = styled.div`
+const StyledBarThree = styled.div<ITheme>`
     ${commonBarStyle}
-    background: ${(props: ThemeProps) => props.theme.colors.primary};
+    background: ${(props: ITheme) => props.theme.colors.primary};
 
     &.open {
         -webkit-transform: rotate(45deg) translate(-8px, -8px);

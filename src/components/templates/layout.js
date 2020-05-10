@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "../organisms/header"
@@ -24,10 +23,6 @@ const Layout = ({ children }) => {
       <Footer siteTitle={data.site.siteMetadata.title} />
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

@@ -1,6 +1,6 @@
-import { useThemeUI } from 'theme-ui';
+import { useThemeUI, Theme } from 'theme-ui';
 
-export const theme = () => {
+export const theme = (): Theme => {
     const context = useThemeUI();
     const { theme } = context;
 
@@ -52,9 +52,9 @@ export interface ITheme {
             monospace: string,
         },
         fontSizes: {
-          body: object,
-          heading: object,
-          buttons: object,
+          body: Array<number>,
+          heading: Array<number>,
+          buttons: Array<number>,
         },
         fontWeights: {
           body: string,
@@ -62,10 +62,10 @@ export interface ITheme {
           bold: string,
         },
         lineHeights: {
-          body: string,
-          heading: object,
+          body: number,
+          heading: Array<number>,
         },
-        breakpoints: object,
-        space: object,
+        breakpoints: Array<string>,
+        space: Array<number>,
     }
 }

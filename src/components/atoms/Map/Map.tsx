@@ -12,7 +12,7 @@ const Map = ({ mapUrl, mapTitle } : Props) => {
       <iframe
         src={mapUrl}
         title={mapTitle}
-        frameborder="0"
+        frameBorder="0"
         width="600"
         height="400"
         style={{
@@ -23,8 +23,8 @@ const Map = ({ mapUrl, mapTitle } : Props) => {
           top: "0",
           width: "100%",
         }}
-        webkitallowfullscreen="true"
-        mozallowfullscreen="true"
+        webkitAllowFullScreen="true"
+        mozAllowFullScreen="true"
         allowFullScreen
         aria-hidden="false"
       />

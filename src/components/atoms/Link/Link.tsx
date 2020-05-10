@@ -6,7 +6,6 @@ import { theme, ITheme } from '../Util/theme'
 
 import { StyledParagraph } from '../Paragraph'
 
-interface ThemeProps extends ITheme {}
 interface Props {
     to: string,
     children: object,
@@ -18,10 +17,10 @@ const LinkItem = ({to, children} : Props) => (
 
 export default LinkItem
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link)<ITheme>`
     ${StyledParagraph}
     background-color: transparent;
-    color: ${(props: ThemeProps) => props.theme.colors.primary};
+    color: ${(props: ITheme) => props.theme.colors.primary};
     cursor: pointer;
     text-decoration: none;
     -webkit-text-decoration-skip: objects;
@@ -35,7 +34,7 @@ const StyledLink = styled(Link)`
     &:focus-within,
     &:link:active,
     &:visited:active {
-        color: ${(props: ThemeProps) => props.theme.colors.primary};
+        color: ${(props: ITheme) => props.theme.colors.primary};
         outline-width: 0;
     }
 `;

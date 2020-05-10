@@ -5,7 +5,6 @@ import { theme, ITheme } from '../Util/theme'
 
 import { StyledParagraph } from '../Paragraph'
 
-interface ThemeProps extends ITheme {}
 interface Props {
     action: boolean,
     children: object,
@@ -19,9 +18,9 @@ const ListItem = ({ action, children, ...props } : Props) => (
 
 export default ListItem
 
-const StyledItem = styled.li`
+const StyledItem = styled.li<ITheme>`
   ${StyledParagraph}
   list-style: outside none none;
-  margin: ${(props: ThemeProps) => props.theme.space[2]}px 0px;
-  padding: ${(props: ThemeProps) => props.theme.space[2]}px 0px;
+  margin: ${(props: ITheme) => props.theme.space[2]}px 0px;
+  padding: ${(props: ITheme) => props.theme.space[2]}px 0px;
 `;

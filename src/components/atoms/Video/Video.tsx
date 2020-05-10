@@ -21,7 +21,7 @@ const Video = ({ videoUrl, videoTitle, ...props } : Props) => (
       }}
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       frameBorder="0"
-      webkitallowfullscreen="true"
+      webkitAllowFullScreen="true"
       mozallowfullscreen="true"
       allowFullScreen
     />
