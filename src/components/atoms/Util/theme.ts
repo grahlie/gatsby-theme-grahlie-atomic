@@ -65,6 +65,7 @@ export interface ITheme {
           body: number,
           heading: Array<number>,
         },
+        viewport: string,
         breakpoints: Array<string>,
         space: Array<number>,
     }

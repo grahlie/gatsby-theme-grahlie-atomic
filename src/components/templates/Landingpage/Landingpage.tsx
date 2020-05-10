@@ -1,11 +1,15 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "../organisms/header"
-import Footer from "../organisms/footer"
-import "./normalize.css"
+import Header from "../../organisms/Header"
+import Footer from "../../organisms/Footer"
+import '../normalize.css'
 
-const Layout = ({ children }) => {
+interface Props {
+    children: object,
+}
+
+const Landingpage = ({ children } : Props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -25,4 +29,4 @@ const Layout = ({ children }) => {
   )
 }
 
-export default Layout
+export default Landingpage
