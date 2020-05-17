@@ -17,7 +17,7 @@ const IndexPage = () => {
     return (
         <Landingpage>
             <SEO title="Home" />
-            
+
             <Heading variant='Hero'>Hi peopless</Heading>
             <Heading variant='One'>Hi peopless</Heading>
             <Heading variant='Two'>Hi peopless</Heading>
@@ -26,14 +26,15 @@ const IndexPage = () => {
             <Heading variant='Five'>Hi peopless</Heading>
             <Heading variant='Six'>Hi peopless</Heading>
             <Paragraph>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Paragraph>
+            
+            <Heading variant='Two'>Buttons</Heading>
             <Button variant='Primary'>Primary</Button>
             <Button variant='Secondary'>Secondary</Button>
             <Button variant='Error'>Error</Button>
             <Button variant='Success'>Success</Button>
 
             <Heading variant='Two'>Icons</Heading>
-            <Link to='https://feathericons.com/'>Feather Icons</Link>
-            <br />
+            <Paragraph>Feather Icons are implemented in this theme, more information <a href="https://feathericons.com/" target="_blank">here</a></Paragraph>
             <Icon.Box />
             <Icon.Briefcase />
             <Icon.Calendar />
