@@ -6,11 +6,12 @@ import { theme, ITheme } from '../Util/theme'
 
 interface Props {
     open: boolean,
+    clickHandler: React.MouseEvent<HTMLButtonElement>,
 }
 
-const Burger = ({ open, ...props } : Props) => {
+const Burger = ({ open, clickHandler, ...props } : Props) => {
     return (
-        <StyledContainer className={open ? 'open' : 'closed'} {...props}>
+        <StyledContainer className={open ? 'open' : 'closed'} onClick={() => clickHandler} {...props}>
             <StyledBarOne theme={theme()} className={open ? 'open' : 'closed'} key="b1"/>
             <StyledBarTwo theme={theme()} className={open ? 'open' : 'closed'} key="b2"/>
             <StyledBarThree theme={theme()} className={open ? 'open' : 'closed'} key="b3"/>
@@ -44,6 +45,7 @@ const StyledBarOne = styled.div<ITheme>`
     background: ${(props: ITheme) => props.theme.colors.primary};
 
     &.open {
+        background: ${(props: ITheme) => props.theme.colors.accent};
         -webkit-transform: rotate(-45deg) translate(-6px, 6px);
         transform: rotate(-45deg) translate(-6px, 6px);
     }
@@ -61,6 +63,7 @@ const StyledBarThree = styled.div<ITheme>`
     background: ${(props: ITheme) => props.theme.colors.primary};
 
     &.open {
+        background: ${(props: ITheme) => props.theme.colors.accent};
         -webkit-transform: rotate(45deg) translate(-8px, -8px);
         transform: rotate(45deg) translate(-8px, -8px);
     }

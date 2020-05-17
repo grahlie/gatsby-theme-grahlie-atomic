@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Popup from "reactjs-popup"
 import styled from "@emotion/styled";
 
@@ -12,27 +12,27 @@ interface Props {
 }
 
 const Navigation = ({ links }: Props) => {
-    const navigation = (close: boolean) => {
+    const [open, setOpen] = useState(false);
+
+    const clickHandler = () => {
+        setOpen(!open);
+    }
+
+    const navigation = (open: boolean, clickHandler: React.MouseEvent<HTMLButtonElement>) => {
         return links.map((link: object, index: number) => (
-            <ListItem key={index} onClick={close}>
+            <ListItem key={index} action={clickHandler}>
               <Link to={link.href}>{link.title}</Link>
             </ListItem>
         ))
     }
 
     return (
-        <StyledPopup
-            modal
-            closeOnDocumentClick={false}
-            trigger={open => <Burger open={open} />}
-        >
-            {
-            close => 
-                <List>
-                    {navigation(close)}
-                </List>
-            }
-        </StyledPopup>
+        <div role='navigation' onClick={clickHandler}>
+            <Burger open={open} clickHandler={clickHandler} />
+            <List variant='Navigation' open={open}>
+                {navigation(open, clickHandler)}
+            </List>
+        </div>
     )
 }
 

@@ -6,12 +6,12 @@ import { theme, ITheme } from '../Util/theme'
 import { StyledParagraph } from '../Paragraph'
 
 interface Props {
-    action: boolean,
+    action: React.MouseEvent<HTMLButtonElement>,
     children: object,
 }
 
 const ListItem = ({ action, children, ...props } : Props) => (
-    <StyledItem theme={theme()} onClick={action} {...props}>
+    <StyledItem theme={theme()} onClick={() => action} {...props}>
       {children}
     </StyledItem>
 )

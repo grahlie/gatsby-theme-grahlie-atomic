@@ -25,6 +25,7 @@
     "intersection-observer": "^0.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-feather": "^2.0.8",
     "react-helmet": "^5.2.1",
     "reactjs-popup": "^1.5.0",
     "theme-ui": "^0.3.1"
