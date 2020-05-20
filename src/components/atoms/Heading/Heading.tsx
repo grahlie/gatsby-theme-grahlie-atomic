@@ -48,9 +48,6 @@ export default Heading
 const commonStyles = css`
     margin: 0;
     padding: 0;
-    font-family: ${(props: ITheme) => props.theme.fonts.heading};
-    font-weight: ${(props: ITheme) => props.theme.fontWeights.heading};
-    color: ${(props: ITheme) => props.theme.colors.primary};
     text-rendering: optimizeLegibility;
     word-break: keep-all;
 `;
@@ -58,6 +55,9 @@ const commonStyles = css`
 const Hero = styled.h1<ITheme>`
     ${commonStyles}
     font-size: ${(props: ITheme) => props.theme.fontSizes.heading[7]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.heading};
+    font-weight: ${(props: ITheme) => props.theme.fontWeights.heading};
+    color: ${(props: ITheme) => props.theme.colors.primary};
     line-height: ${(props: ITheme) => props.theme.lineHeights.heading[0]};
 
     @media only screen and (max-width: 600px) {
@@ -69,6 +69,9 @@ const Hero = styled.h1<ITheme>`
 const One = styled.h1<ITheme>`
     ${commonStyles}
     font-size: ${(props: ITheme) => props.theme.fontSizes.heading[6]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.heading};
+    font-weight: ${(props: ITheme) => props.theme.fontWeights.heading};
+    color: ${(props: ITheme) => props.theme.colors.primary};
     line-height: ${(props: ITheme) => props.theme.lineHeights.heading[0]};
 
     @media only screen and (max-width: 600px) {
@@ -80,6 +83,9 @@ const One = styled.h1<ITheme>`
 const Two = styled.h2<ITheme>`
     ${commonStyles}
     font-size: ${(props: ITheme) => props.theme.fontSizes.heading[5]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.heading};
+    font-weight: ${(props: ITheme) => props.theme.fontWeights.heading};
+    color: ${(props: ITheme) => props.theme.colors.primary};
     line-height: ${(props: ITheme) => props.theme.lineHeights.heading[2]};
 
     @media only screen and (max-width: 600px) {
@@ -91,6 +97,9 @@ const Two = styled.h2<ITheme>`
 const Three = styled.h3<ITheme>`
     ${commonStyles}
     font-size: ${(props: ITheme) => props.theme.fontSizes.heading[4]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.heading};
+    font-weight: ${(props: ITheme) => props.theme.fontWeights.heading};
+    color: ${(props: ITheme) => props.theme.colors.primary};
     line-height: ${(props: ITheme) => props.theme.lineHeights.heading[3]};
 
     @media only screen and (max-width: 600px) {
@@ -101,6 +110,9 @@ const Three = styled.h3<ITheme>`
 const Four = styled.h4<ITheme>`
     ${commonStyles}
     font-size: ${(props: ITheme) => props.theme.fontSizes.heading[3]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.heading};
+    font-weight: ${(props: ITheme) => props.theme.fontWeights.heading};
+    color: ${(props: ITheme) => props.theme.colors.primary};
     line-height: ${(props: ITheme) => props.theme.lineHeights.heading[3]};
 
     @media only screen and (max-width: 600px) {
@@ -111,6 +123,9 @@ const Four = styled.h4<ITheme>`
 const Five = styled.h5<ITheme>`
     ${commonStyles}
     font-size: ${(props: ITheme) => props.theme.fontSizes.heading[2]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.heading};
+    font-weight: ${(props: ITheme) => props.theme.fontWeights.heading};
+    color: ${(props: ITheme) => props.theme.colors.primary};
     line-height: ${(props: ITheme) => props.theme.lineHeights.heading[3]};
     font-weight: normal;
 
@@ -122,6 +137,9 @@ const Five = styled.h5<ITheme>`
 const Six = styled.h6<ITheme>`
     ${commonStyles}
     font-size: ${(props: ITheme) => props.theme.fontSizes.heading[1]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.heading};
+    font-weight: ${(props: ITheme) => props.theme.fontWeights.heading};
+    color: ${(props: ITheme) => props.theme.colors.primary};
     line-height: ${(props: ITheme) => props.theme.lineHeights.heading[3]};
 
     @media only screen and (max-width: 600px) {

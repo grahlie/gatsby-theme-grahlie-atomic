@@ -33,6 +33,12 @@ export interface ITheme {
                 hover: string,
                 hoverText: string,
             },
+            accent: {
+                background: string,
+                text: string,
+                hover: string,
+                hoverText: string,
+            },
             error: {
                 background: string,
                 text: string,

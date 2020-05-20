@@ -25,7 +25,9 @@ const Header = ({ siteTitle, height } : ComponentProps) => {
 
   return (
     <StyledHeaderContainer theme={theme()} height={height}>
-        <Logotype siteTitle={siteTitle} />
+        <div style={{width: '150px'}}>
+          <Logotype siteTitle={siteTitle} />
+        </div>
         <Navigation links={links}/>
     </StyledHeaderContainer>
   )

@@ -1,6 +1,6 @@
 export const fonts = {
-    body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'Raleway',
+    body: 'Open Sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    heading: 'Open Sans',
     monospace: 'Menlo, monospace',
 };
 export const fontSizes = {

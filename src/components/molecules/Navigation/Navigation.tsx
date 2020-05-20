@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import Popup from "reactjs-popup"
 import styled from "@emotion/styled";
 
+import { theme, ITheme } from '../../atoms/Util/theme'
+
 import Burger from '../../atoms/Burger'
 import List from '../../atoms/List'
 import ListItem from '../../atoms/ListItem'
@@ -13,24 +15,29 @@ interface Props {
 
 const Navigation = ({ links }: Props) => {
     const [open, setOpen] = useState(false);
+    const themeObject = theme()
 
     const clickHandler = () => {
         setOpen(!open);
     }
 
-    const navigation = (open: boolean, clickHandler: React.MouseEvent<HTMLButtonElement>) => {
-        return links.map((link: object, index: number) => (
-            <ListItem key={index} action={clickHandler}>
-              <Link to={link.href}>{link.title}</Link>
-            </ListItem>
-        ))
+    const navigation = (theme: ITheme, open: boolean, clickHandler: React.MouseEvent<HTMLButtonElement>) => {
+        return links.map((link: object, index: number) => {
+            return (
+                <ListItem key={index} action={clickHandler}>
+                    <Link to={link.href} color={theme.colors.accent}>
+                        {link.title}
+                    </Link>
+                </ListItem>
+            )
+        })
     }
 
     return (
         <div role='navigation' onClick={clickHandler}>
             <Burger open={open} clickHandler={clickHandler} />
             <List variant='Navigation' open={open}>
-                {navigation(open, clickHandler)}
+                {navigation(themeObject, open, clickHandler)}
             </List>
         </div>
     )

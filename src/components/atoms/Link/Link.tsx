@@ -9,19 +9,27 @@ import { StyledParagraph } from '../Paragraph'
 interface Props {
     to: string,
     children: object,
+    color: string,
+}
+interface StyledProps extends ITheme {
+    color: string,
 }
 
-const LinkItem = ({to, children} : Props) => (
-    <StyledLink theme={theme()} to={to}>{children}</StyledLink>
+const LinkItem = ({to, color, children} : Props) => (
+    <StyledLink theme={theme()} to={to} color={color}>{children}</StyledLink>
 )
 
 export default LinkItem
 
-const StyledLink = styled(Link)<ITheme>`
-    ${StyledParagraph}
+const StyledLink = styled(Link)<StyledProps>`
+    font-family: ${(props: StyledProps) => props.theme.fonts.body};
+    font-size: ${(props: StyledProps) => props.theme.fontSizes.body[2]}px;
+    font-weight: ${(props: StyledProps) => props.theme.fontWeights.body};
+    line-height: ${(props: StyledProps) => props.theme.lineHeights.body};
     background-color: transparent;
-    color: ${(props: ITheme) => props.theme.colors.primary};
+    color: ${(props: StyledProps) => props.color ? props .color : props.theme.colors.primary};
     cursor: pointer;
+    text-rendering: optimizeLegibility;
     text-decoration: none;
     -webkit-text-decoration-skip: objects;
 
@@ -34,7 +42,7 @@ const StyledLink = styled(Link)<ITheme>`
     &:focus-within,
     &:link:active,
     &:visited:active {
-        color: ${(props: ITheme) => props.theme.colors.primary};
+        color: ${(props: StyledProps) => props.color ? props .color : props.theme.colors.primary};
         outline-width: 0;
     }
 `;

@@ -18,6 +18,9 @@ const Button = ({variant, children} : Props) => {
         case 'Secondary': 
             ButtonComponent = (theme: ITheme, children: Props) => (<SecondaryButton theme={theme}>{children}</SecondaryButton>);
             break;
+        case 'Accent': 
+            ButtonComponent = (theme: ITheme, children: Props) => (<AccentButton theme={theme}>{children}</AccentButton>);
+            break;
         case 'Error': 
             ButtonComponent = (theme: ITheme, children: Props) => (<ErrorButton theme={theme}>{children}</ErrorButton>);
             break;
@@ -36,11 +39,10 @@ const Button = ({variant, children} : Props) => {
 
 export default Button;
 
-const commonStyle = css`
+const commonStyle = css<ITheme>`
     border-radius: 6px;
     cursor: pointer;
     display: block;
-    font-family: ${(props: ITheme) => props.theme.fonts.body};
     text-decoration: none;
     text-align: center;
 
@@ -54,7 +56,8 @@ const PrimaryButton = styled.a<ITheme>`
     background: ${(props: ITheme) => props.theme.buttons.primary.background};
     color: ${(props: ITheme) => props.theme.buttons.primary.text};
     font-size: ${(props: ITheme) => props.theme.fontSizes.buttons[1]}px;
-    padding: ${(props: ITheme) => props.theme.space[2]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.body};
+    padding: ${(props: ITheme) => props.theme.space[3]}px;
 
     &:hover {
         color: ${(props: ITheme) => props.theme.buttons.primary.hoverText};
@@ -66,11 +69,25 @@ const SecondaryButton = styled.a<ITheme>`
     background: ${(props: ITheme) => props.theme.buttons.secondary.background};
     color: ${(props: ITheme) => props.theme.buttons.secondary.text};
     font-size: ${(props: ITheme) => props.theme.fontSizes.buttons[1]}px;
-    padding: ${(props: ITheme) => props.theme.space[2]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.body};
+    padding: ${(props: ITheme) => props.theme.space[3]}px;
 
     &:hover {
         color: ${(props: ITheme) => props.theme.buttons.secondary.hoverText};
         background: ${(props: ITheme) => props.theme.buttons.secondary.hover};
+    }
+`;
+const AccentButton = styled.a<ITheme>`
+    ${commonStyle}
+    background: ${(props: ITheme) => props.theme.buttons.accent.background};
+    color: ${(props: ITheme) => props.theme.buttons.accent.text};
+    font-size: ${(props: ITheme) => props.theme.fontSizes.buttons[1]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.body};
+    padding: ${(props: ITheme) => props.theme.space[3]}px;
+
+    &:hover {
+        color: ${(props: ITheme) => props.theme.buttons.accent.hoverText};
+        background: ${(props: ITheme) => props.theme.buttons.accent.hover};
     }
 `;
 const ErrorButton = styled.a<ITheme>`
@@ -78,7 +95,8 @@ const ErrorButton = styled.a<ITheme>`
     background: ${(props: ITheme) => props.theme.buttons.error.background};
     color: ${(props: ITheme) => props.theme.buttons.error.text};
     font-size: ${(props: ITheme) => props.theme.fontSizes.buttons[1]}px;
-    padding: ${(props: ITheme) => props.theme.space[2]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.body};
+    padding: ${(props: ITheme) => props.theme.space[3]}px;
 
     &:hover {
         color: ${(props: ITheme) => props.theme.buttons.error.hoverText};
@@ -90,7 +108,8 @@ const SuccessButton = styled.a<ITheme>`
     background: ${(props: ITheme) => props.theme.buttons.success.background};
     color: ${(props: ITheme) => props.theme.buttons.success.text};
     font-size: ${(props: ITheme) => props.theme.fontSizes.buttons[1]}px;
-    padding: ${(props: ITheme) => props.theme.space[2]}px;
+    font-family: ${(props: ITheme) => props.theme.fonts.body};
+    padding: ${(props: ITheme) => props.theme.space[3]}px;
 
     &:hover {
         color: ${(props: ITheme) => props.theme.buttons.success.hoverText};

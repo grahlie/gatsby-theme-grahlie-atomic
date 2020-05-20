@@ -1,12 +1,12 @@
 export const colors = {
     text: '#000',
     background: '#fff',
-    primary: '#07c',
-    secondary: '#30c',
-    accent: "#6166DC",
+    primary: '#263a96',
+    secondary: '#f7d349',
+    accent: "#e9973e",
     hover: "rgba(0, 0, 0, 0.07)",
-    error: "#EE565B",
-    success: "#46B17B",
+    error: "#F7423E",
+    success: "#5FD038",
     gradient: "linear-gradient(180deg, rgba(217, 219, 224, 0) 0%, #D9DBE0 100%)",
 };
 
@@ -21,6 +21,12 @@ export const buttons = {
         background: colors.secondary,
         text: '#fff',
         hover: colors.secondary,
+        hoverText: '#fff',
+    },
+    accent: {
+        background: colors.accent,
+        text: '#fff',
+        hover: colors.accent,
         hoverText: '#fff',
     },
     error: {
