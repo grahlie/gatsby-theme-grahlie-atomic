@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "../../organisms/Header"
+import Content from "../../organisms/Content"
 import Footer from "../../organisms/Footer"
 import '../normalize.css'
 
@@ -15,6 +16,12 @@ const Landingpage = ({ children } : Props) => {
       site {
         siteMetadata {
           title
+          contact {
+            email
+            phone
+            address
+            orgnr
+          }
         }
       }
     }
@@ -23,8 +30,8 @@ const Landingpage = ({ children } : Props) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <main>{children}</main>
-      <Footer siteTitle={data.site.siteMetadata.title} />
+      <Content>{children}</Content>
+      <Footer siteTitle={data.site.siteMetadata.title} siteContact={data.site.siteMetadata.contact} />
     </>
   )
 }

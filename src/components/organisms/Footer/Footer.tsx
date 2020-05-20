@@ -7,13 +7,23 @@ import Paragraph from '../../atoms/Paragraph'
 
 interface Props {
     siteTitle: string,
+    siteContact: {
+      email: string,
+      phone: string,
+      address: string
+      orgnr: string
+    },
 }
 
-const Footer = ({ siteTitle } : Props) => {
+const Footer = ({ siteTitle, siteContact } : Props) => {
   return (
     <StyledFooter>
       <Paragraph variant='Small'>
-        © {new Date().getFullYear()} - {siteTitle}
+        © {new Date().getFullYear()} - {siteTitle} <br />
+        <adress>
+          mail: {siteContact.email} - phone: {siteContact.phone} <br />
+          address: {siteContact.address} - org.nr: {siteContact.orgnr}
+        </adress>
       </Paragraph>
     </StyledFooter>
   )

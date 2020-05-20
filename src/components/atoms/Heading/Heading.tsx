@@ -6,7 +6,7 @@ import { theme, ITheme } from '../Util/theme'
 
 interface Props {
     variant: string,
-    children: object,
+    children: string,
 }
 
 const Heading = ({variant, children} : Props) => {

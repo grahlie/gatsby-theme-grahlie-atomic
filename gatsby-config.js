@@ -4,6 +4,12 @@ module.exports = {
     description: `DESCRIPTION TO CHANGE`,
     author: `@grahlie`,
     keywords: "SEO KEYWORDS CHANGE ME, COMMA SEPERATED",
+    contact: {
+      email: 'INFO@EXAMPLECOMPANY.COM',
+      phone: '+461253252345',
+      address: 'EXAMPLE STREET',
+      orgnr: 'ORG NUMBER'
+    }
   },
   plugins: [
     `gatsby-transformer-sharp`,

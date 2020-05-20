@@ -4,12 +4,13 @@ import { useStaticQuery, graphql } from "gatsby"
 
 interface Props {
     description: string,
+    keywords: string,
     lang: string,
     meta: object,
     title: string
 }
 
-function SEO({ description, lang, meta, title } : Props) {
+function SEO({ description, keywords, lang, meta, title } : Props) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -25,6 +26,9 @@ function SEO({ description, lang, meta, title } : Props) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaKeywords = keywords || `
+    Some Keywords, comma separated
+  `;
 
   return (
     <Helmet
@@ -32,7 +36,7 @@ function SEO({ description, lang, meta, title } : Props) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`${title} - ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -68,7 +72,7 @@ function SEO({ description, lang, meta, title } : Props) {
         },
         {
           name: "keywords",
-          content: site.siteMetadata.keywords,
+          content: metaKeywords,
         },
         {
           name: "viewport",
