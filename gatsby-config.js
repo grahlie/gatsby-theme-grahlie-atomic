@@ -28,7 +28,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-bolier`,
+        name: `grahlie-atomic-gatsby-starter`,
         short_name: `grahlie`,
         start_url: `/`,
         display: `minimal-ui`,
