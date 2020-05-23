@@ -15,10 +15,8 @@ interface StyledProps extends ITheme {
 }
 
 const Header = ({ siteTitle, height }: ComponentProps) => {
-  // TODO: Fetch this data from something 
-  const links = [
-    { href: '/', title: 'Home' }
-  ]
+  // TODO: Fetch this data from something
+  const links = [{ href: '/', title: 'Home' }]
 
   return (
     <StyledHeaderContainer theme={themeFunc()} height={height}>

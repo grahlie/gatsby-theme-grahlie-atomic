@@ -4,7 +4,7 @@ export const fonts = {
   heading: 'Open Sans',
   monospace: 'Menlo, monospace',
 }
-export const fontSizes = [12, 14, 16, 18, 20, 24, 30, 36, 48, 60, 72];
+export const fontSizes = [12, 14, 16, 18, 20, 24, 30, 36, 48, 60, 72]
 
 export const fontWeights = {
   body: 400,

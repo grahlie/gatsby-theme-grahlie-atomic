@@ -57,7 +57,7 @@ export interface ITheme extends Theme {
       heading: string
       monospace: string
     }
-    fontSizes: Array<number>,
+    fontSizes: Array<number>
     fontWeights: {
       body: string
       heading: string

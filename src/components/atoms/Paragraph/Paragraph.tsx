@@ -15,8 +15,7 @@ interface StyledProps extends ITheme {
 export const StyledParagraph = styled.p<StyledProps>`
   color: ${(props: StyledProps) => props.theme.colors.text};
   font-family: ${(props: StyledProps) => props.theme.fonts.body};
-  font-size: ${(props: StyledProps) =>
-    props.theme.fontSizes[props.fontSize]}px;
+  font-size: ${(props: StyledProps) => props.theme.fontSizes[props.fontSize]}px;
   font-weight: ${(props: StyledProps) => props.theme.fontWeights.body};
   line-height: ${(props: StyledProps) => props.theme.lineHeights.body};
   text-rendering: optimizeLegibility;

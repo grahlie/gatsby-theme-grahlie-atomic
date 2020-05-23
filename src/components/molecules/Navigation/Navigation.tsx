@@ -13,7 +13,7 @@ interface Props {
   links: Array<any>
 }
 interface Link {
-  href: string,
+  href: string
   title: object
 }
 

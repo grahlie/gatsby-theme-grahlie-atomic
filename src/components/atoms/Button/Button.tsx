@@ -41,7 +41,7 @@ const Button = ({ variant, children }: Props) => {
       ButtonComponent = () => 'Variant dont exists'
       break
   }
-  
+
   return ButtonComponent(themeFunc(), children)
 }
 

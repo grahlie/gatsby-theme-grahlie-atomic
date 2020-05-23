@@ -10,16 +10,16 @@ const breakpoints = ['40em', '52em', '64em']
 const space = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 
 const theme = merge(
-  {colors},
-  {buttons},
-  {fonts},
-  {fontSizes},
-  {fontWeights},
-  {lineHeights},
-  {viewport},
-  {breakpoints},
-  {space},
-  {styles}
+  { colors },
+  { buttons },
+  { fonts },
+  { fontSizes },
+  { fontWeights },
+  { lineHeights },
+  { viewport },
+  { breakpoints },
+  { space },
+  { styles }
 )
 
 export default theme

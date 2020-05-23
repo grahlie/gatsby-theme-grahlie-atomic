@@ -9,7 +9,9 @@ interface ComponentProps {
 
 const Content = ({ children }: ComponentProps) => {
   return (
-    <StyledContentContainer theme={themeFunc()}>{children}</StyledContentContainer>
+    <StyledContentContainer theme={themeFunc()}>
+      {children}
+    </StyledContentContainer>
   )
 }
 
