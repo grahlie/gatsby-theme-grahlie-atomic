@@ -10,10 +10,10 @@ import Heading from '../components/atoms/Heading'
 import Paragraph from '../components/atoms/Paragraph'
 import Button from '../components/atoms/Button'
 import Divider from '../components/atoms/Divider'
-import { theme } from '../components/atoms/Util/theme';
+import { themeFunc } from '../components/atoms/Util/theme';
 
 const IndexPage = () => {
-    const themeObject = theme()
+    const theme = {theme: themeFunc()}
 
     return (
         <Landingpage>
@@ -58,9 +58,9 @@ const IndexPage = () => {
             <Icon.Briefcase />
             <Icon.Calendar />
             <br />
-            <Icon.Box color={themeObject.colors.primary} />
-            <Icon.Briefcase color={themeObject.colors.primary} />
-            <Icon.Calendar color={themeObject.colors.primary} />
+            <Icon.Box color={theme.theme.colors.primary} />
+            <Icon.Briefcase color={theme.theme.colors.primary} />
+            <Icon.Calendar color={theme.theme.colors.primary} />
         </Landingpage>
     )
 }

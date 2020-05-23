@@ -1,23 +1,21 @@
-import React from "react"
-import styled from "@emotion/styled";
+import React from 'react'
+import styled from '@emotion/styled'
 
-import { theme, ITheme } from '../../atoms/Util/theme'
+import { themeFunc, ITheme } from '../../atoms/Util/theme'
 
 interface ComponentProps {
-    children: object,
+  children: object
 }
 
-const Content = ({ children } : ComponentProps) => {
+const Content = ({ children }: ComponentProps) => {
   return (
-    <StyledContentContainer theme={theme()}>
-        {children}
-    </StyledContentContainer>
+    <StyledContentContainer theme={themeFunc()}>{children}</StyledContentContainer>
   )
 }
 
 export default Content
 
 const StyledContentContainer = styled.main<ITheme>`
-    margin: ${(props: ITheme) => props.theme.space[5]}px auto;
-    max-width: ${(props: ITheme) => props.theme.viewport}px;
+  margin: ${(props: ITheme) => props.theme.space[5]}px auto;
+  max-width: ${(props: ITheme) => props.theme.viewport}px;
 `

@@ -1,29 +1,29 @@
-import React from "react"
-import styled from "@emotion/styled";
+import React from 'react'
+import styled from '@emotion/styled'
 
-import { theme, ITheme } from '../../atoms/Util/theme'
+import { themeFunc, ITheme } from '../../atoms/Util/theme'
 
 import Paragraph from '../../atoms/Paragraph'
 
 interface Props {
-    siteTitle: string,
-    siteContact: {
-      email: string,
-      phone: string,
-      address: string
-      orgnr: string
-    },
+  siteTitle: string
+  siteContact: {
+    email: string
+    phone: string
+    address: string
+    orgnr: string
+  }
 }
 
-const Footer = ({ siteTitle, siteContact } : Props) => {
+const Footer = ({ siteTitle, siteContact }: Props) => {
   return (
-    <StyledFooter>
-      <Paragraph variant='Small'>
+    <StyledFooter theme={themeFunc()}>
+      <Paragraph variant="Small">
         © {new Date().getFullYear()} - {siteTitle} <br />
-        <adress>
+        <address>
           mail: {siteContact.email} - phone: {siteContact.phone} <br />
           address: {siteContact.address} - org.nr: {siteContact.orgnr}
-        </adress>
+        </address>
       </Paragraph>
     </StyledFooter>
   )
@@ -33,7 +33,7 @@ export default Footer
 
 const StyledFooter = styled.footer<ITheme>`
   max-width: ${(props: ITheme) => props.theme.viewport}px;
-  font-size: ${(props: ITheme) => props.theme.fontSizes.body[0]}px;
+  font-size: ${(props: ITheme) => props.theme.fontSizes[0]}px;
   margin: 1rem auto;
   text-align: center;
 

@@ -1,12 +1,12 @@
-import React from "react"
-import styled from "@emotion/styled";
+import React from 'react'
+import styled from '@emotion/styled'
 
 interface Props {
-  mapUrl: string,
-  mapTitle: string,
+  mapUrl: string
+  mapTitle: string
 }
 
-const Map = ({ mapUrl, mapTitle } : Props) => {
+const Map = ({ mapUrl, mapTitle }: Props) => {
   return (
     <StyledContainer>
       <iframe
@@ -16,15 +16,13 @@ const Map = ({ mapUrl, mapTitle } : Props) => {
         width="600"
         height="400"
         style={{
-          border: "0",
-          height: "100%",
-          left: "0",
-          position: "absolute",
-          top: "0",
-          width: "100%",
+          border: '0',
+          height: '100%',
+          left: '0',
+          position: 'absolute',
+          top: '0',
+          width: '100%',
         }}
-        webkitAllowFullScreen="true"
-        mozAllowFullScreen="true"
         allowFullScreen
         aria-hidden="false"
       />

@@ -1,19 +1,19 @@
-import React from "react"
-import styled from "@emotion/styled";
+import React from 'react'
+import styled from '@emotion/styled'
 
-import { theme, ITheme } from '../Util/theme'
+import { themeFunc, ITheme } from '../Util/theme'
 
 import { StyledParagraph } from '../Paragraph'
 
 interface Props {
-    action: React.MouseEvent<HTMLButtonElement>,
-    children: object,
+  action: (event: React.MouseEvent<HTMLButtonElement>) => void
+  children: object
 }
 
-const ListItem = ({ action, children, ...props } : Props) => (
-    <StyledItem theme={theme()} onClick={() => action} {...props}>
-      {children}
-    </StyledItem>
+const ListItem = ({ action, children, ...props }: Props) => (
+  <StyledItem theme={themeFunc()} onClick={() => action} {...props}>
+    {children}
+  </StyledItem>
 )
 
 export default ListItem
@@ -23,4 +23,4 @@ const StyledItem = styled.li<ITheme>`
   list-style: outside none none;
   margin: ${(props: ITheme) => props.theme.space[2]}px 0px;
   padding: ${(props: ITheme) => props.theme.space[2]}px 0px;
-`;
+`

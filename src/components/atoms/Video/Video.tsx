@@ -1,28 +1,26 @@
-import React from "react"
-import styled from "@emotion/styled";
+import React from 'react'
+import styled from '@emotion/styled'
 
 interface Props {
-  videoUrl: string,
-  videoTitle: string,
+  videoUrl: string
+  videoTitle: string
 }
 
-const Video = ({ videoUrl, videoTitle, ...props } : Props) => (
+const Video = ({ videoUrl, videoTitle, ...props }: Props) => (
   <StyledContainer>
     <iframe
       src={videoUrl}
       title={videoTitle}
       style={{
-        border: "0",
-        height: "100%",
-        left: "0",
-        position: "absolute",
-        top: "0",
-        width: "100%",
+        border: '0',
+        height: '100%',
+        left: '0',
+        position: 'absolute',
+        top: '0',
+        width: '100%',
       }}
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       frameBorder="0"
-      webkitAllowFullScreen="true"
-      mozallowfullscreen="true"
       allowFullScreen
     />
   </StyledContainer>

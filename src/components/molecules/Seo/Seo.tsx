@@ -1,16 +1,16 @@
-import React from "react"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import Helmet from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
 interface Props {
-    description: string,
-    keywords: string,
-    lang: string,
-    meta: object,
-    title: string
+  description: string
+  keywords: string
+  lang: string
+  meta: object
+  title: string
 }
 
-function SEO({ description, keywords, lang, meta, title } : Props) {
+function SEO({ description, keywords, lang, title }: Props) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -26,9 +26,11 @@ function SEO({ description, keywords, lang, meta, title } : Props) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaKeywords = keywords || `
+  const metaKeywords =
+    keywords ||
+    `
     Some Keywords, comma separated
-  `;
+  `
 
   return (
     <Helmet
@@ -71,14 +73,14 @@ function SEO({ description, keywords, lang, meta, title } : Props) {
           content: metaDescription,
         },
         {
-          name: "keywords",
+          name: 'keywords',
           content: metaKeywords,
         },
         {
-          name: "viewport",
-          content: "width=device-width, initial-scale=1.0, viewport-fit=cover",
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1.0, viewport-fit=cover',
         },
-      ].concat(meta)}
+      ]}
     >
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </Helmet>

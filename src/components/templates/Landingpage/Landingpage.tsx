@@ -1,16 +1,16 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 
-import Header from "../../organisms/Header"
-import Content from "../../organisms/Content"
-import Footer from "../../organisms/Footer"
+import Header from '../../organisms/Header'
+import Content from '../../organisms/Content'
+import Footer from '../../organisms/Footer'
 import '../normalize.css'
 
 interface Props {
-    children: object,
+  children: object
 }
 
-const Landingpage = ({ children } : Props) => {
+const Landingpage = ({ children }: Props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -31,7 +31,10 @@ const Landingpage = ({ children } : Props) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Content>{children}</Content>
-      <Footer siteTitle={data.site.siteMetadata.title} siteContact={data.site.siteMetadata.contact} />
+      <Footer
+        siteTitle={data.site.siteMetadata.title}
+        siteContact={data.site.siteMetadata.contact}
+      />
     </>
   )
 }
