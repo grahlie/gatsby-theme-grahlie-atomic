@@ -10,7 +10,7 @@ import Heading from '../components/atoms/Heading'
 import Paragraph from '../components/atoms/Paragraph'
 import Button from '../components/atoms/Button'
 import Divider from '../components/atoms/Divider'
-import { themeFunc } from '../components/atoms/Util/theme';
+import { themeFunc } from '../theme';
 
 const IndexPage = () => {
     const theme = {theme: themeFunc()}

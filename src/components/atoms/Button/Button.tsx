@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import { themeFunc, ITheme } from '../Util/theme'
+import { themeFunc, ITheme } from '../../../theme'
 
 interface Props {
   variant: string

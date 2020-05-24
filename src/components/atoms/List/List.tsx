@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { themeFunc, ITheme } from '../Util/theme'
+import { themeFunc, ITheme } from '../../../theme'
 
 interface Props {
   open: boolean

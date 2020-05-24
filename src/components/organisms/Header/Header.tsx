@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { themeFunc, ITheme } from '../../atoms/Util/theme'
+import { themeFunc, ITheme } from '../../../theme'
 
 import Navigation from '../../molecules/Navigation'
 import Logotype from '../../atoms/Logotype'

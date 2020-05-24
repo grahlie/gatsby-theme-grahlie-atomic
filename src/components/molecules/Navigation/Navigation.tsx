@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Popup from 'reactjs-popup'
 import styled from '@emotion/styled'
 
-import { themeFunc, ITheme } from '../../atoms/Util/theme'
+import { themeFunc, ITheme } from '../../../theme'
 
 import Burger from '../../atoms/Burger'
 import List from '../../atoms/List'

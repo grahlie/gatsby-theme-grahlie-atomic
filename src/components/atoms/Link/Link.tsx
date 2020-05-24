@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import { themeFunc, ITheme } from '../Util/theme'
+import { themeFunc, ITheme } from '../../../theme'
 
 import { StyledParagraph } from '../Paragraph'
 
