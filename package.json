@@ -1,7 +1,7 @@
 {
-  "name": "grahlie-atomic-gatsby-starter",
+  "name": "@grahlie/gatsby-theme-grahlie-atomic",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Atomic design Gatsby theme",
   "version": "0.1.0",
   "author": "Mathias Grahl <mathias@grahlie.se>",
   "dependencies": {
@@ -48,7 +48,8 @@
     "gatsby",
     "grahlie",
     "atomic-design",
-    "grahlie-atomic-gatsby-starter"
+    "atomic design",
+    "gatsby-theme-grahlie-atomic"
   ],
   "license": "MIT",
   "scripts": {
@@ -63,9 +64,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/grahlie/grahlie-atomic-gatsby-starter"
+    "url": "https://github.com/grahlie/gatsby-theme-grahlie-atomic"
   },
   "bugs": {
-    "url": "https://gitlab.com/grahlie/grahlie-atomic-gatsby-starter/-/issues"
+    "url": "https://github.com/grahlie/gatsby-theme-grahlie-atomic/issues"
   }
 }
