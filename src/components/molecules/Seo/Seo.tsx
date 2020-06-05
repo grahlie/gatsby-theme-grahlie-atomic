@@ -1,13 +1,13 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 interface Props {
-  description: string
-  keywords: string
-  lang: string
-  meta: object
-  title: string
+  description: string | null
+  keywords: string | null
+  lang: string | null
+  meta: object | null
+  title: string | null
 }
 
 function SEO({ description, keywords, lang, title }: Props) {
@@ -25,24 +25,20 @@ function SEO({ description, keywords, lang, title }: Props) {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-  const metaKeywords =
-    keywords ||
-    `
-    Some Keywords, comma separated
-  `
+  const parsedSiteTitle = site.siteMetadata.title
+  const parsedDescripton = description || site.siteMetadata.description
+  const parsedKeywords = keywords
+  const parsedAuthor = site.siteMetadata.author
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
+      htmlAttributes={{ lang }}
       title={title}
-      titleTemplate={`${title} - ${site.siteMetadata.title}`}
+      titleTemplate={`${title} - ${parsedSiteTitle}`}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: parsedDescripton,
         },
         {
           property: `og:title`,
@@ -50,7 +46,7 @@ function SEO({ description, keywords, lang, title }: Props) {
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: parsedDescripton,
         },
         {
           property: `og:type`,
@@ -62,7 +58,7 @@ function SEO({ description, keywords, lang, title }: Props) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: parsedAuthor,
         },
         {
           name: `twitter:title`,
@@ -70,16 +66,16 @@ function SEO({ description, keywords, lang, title }: Props) {
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: parsedDescripton,
         },
         {
           name: 'keywords',
-          content: metaKeywords,
+          content: parsedKeywords,
         },
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1.0, viewport-fit=cover',
-        },
+        }
       ]}
     >
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

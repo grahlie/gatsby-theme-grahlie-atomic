@@ -1,10 +1,12 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
 import { themeFunc, ITheme } from '../../../theme'
 
 import Navigation from '../../molecules/Navigation'
-import Logotype from '../../atoms/Logotype'
+import Logotype from '../../molecules/Logotype'
 
 interface ComponentProps {
   siteTitle: string
@@ -15,14 +17,25 @@ interface StyledProps extends ITheme {
 }
 
 const Header = ({ siteTitle, height }: ComponentProps) => {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "logotype.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   // TODO: Fetch this data from something
   const links = [{ href: '/', title: 'Home' }]
+  const image = <Img fluid={data.placeholderImage.childImageSharp.fluid} alt={siteTitle} />
 
   return (
     <StyledHeaderContainer theme={themeFunc()} height={height}>
-      <div style={{ width: '150px' }}>
-        <Logotype siteTitle={siteTitle} />
-      </div>
+      <Logotype image={image} />
       <Navigation links={links} />
     </StyledHeaderContainer>
   )

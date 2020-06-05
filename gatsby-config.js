@@ -28,11 +28,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `grahlie-atomic-gatsby-starter`,
+        name: `@grahlie/gatsby-theme-grahlie-atomic`,
         short_name: `grahlie`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`,
+        icon: `${__dirname}/src/images/favicon.png`,
       },
     },
     {

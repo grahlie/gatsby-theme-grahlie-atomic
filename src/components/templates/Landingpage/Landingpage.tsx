@@ -24,6 +24,13 @@ const Landingpage = ({ children }: Props) => {
           }
         }
       }
+      placeholderImage: file(relativePath: { eq: "logotype.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
