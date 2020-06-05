@@ -2,7 +2,7 @@
   "name": "@grahlie/gatsby-theme-grahlie-atomic",
   "version": "1.0.0",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "description": "Atomic design Gatsby theme",
   "author": "Mathias Grahl <mathias@grahlie.se>",
   "main": "index.js",
