@@ -1,15 +1,20 @@
-module.exports = {
-  siteMetadata: {
-    title: `COMPANY NAME`,
-    description: `DESCRIPTION TO CHANGE`,
-    author: `@grahlie`,
-    keywords: "SEO KEYWORDS CHANGE ME, COMMA SEPERATED",
-    contact: {
+module.exports = 
+  ({
+    title = `COMPANY NAME`,
+    author = `@grahlie`,
+    contact = {
       email: 'INFO@EXAMPLECOMPANY.COM',
       phone: '+461253252345',
       address: 'EXAMPLE STREET',
       orgnr: 'ORG NUMBER'
-    }
+    },
+    fontFamily = `Open Sans`,
+    fontSizes = [400, 700]
+  }) => ({
+  siteMetadata: {
+    title,
+    author,
+    contact
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -40,11 +45,11 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Open Sans`,
-            variants: [`400`, `700`]
+            family: fontFamily,
+            variants: fontSizes
           },
         ],
       },
     }
   ],
-}
+})

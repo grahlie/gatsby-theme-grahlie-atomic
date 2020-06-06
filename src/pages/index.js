@@ -53,7 +53,7 @@ const IndexPage = () => {
             <Divider />
 
             <Heading variant='Two'>Icons</Heading>
-            <Paragraph>Feather Icons are implemented in this theme, more information <a href="https://feathericons.com/" target="_blank">here</a></Paragraph>
+            <Paragraph>Feather Icons are implemented in this theme, more information <a href="https://feathericons.com/" target="_blank" rel="noreferrer">here</a></Paragraph>
             <Icon.Box />
             <Icon.Briefcase />
             <Icon.Calendar />

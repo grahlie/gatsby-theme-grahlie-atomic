@@ -1,10 +1,12 @@
 const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }) => {
-  const contentPath = "src/images"
+  const srcFolder = 'src'
+  const imageFolder = "images"
 
-  if (!fs.existsSync(contentPath)) {
-    reporter.info(`creating the ${contentPath} directory`)
-    fs.mkdirSync(contentPath)
+  if (!fs.existsSync(imageFolder)) {
+    reporter.info(`creating the ${srcFolder} & ${srcFolder}/${imageFolder} directory`)
+    fs.mkdirSync(srcFolder)
+    fs.mkdirSync(`${srcFolder}/${imageFolder}`)
   }
 }

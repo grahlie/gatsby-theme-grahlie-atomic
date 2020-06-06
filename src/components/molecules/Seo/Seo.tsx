@@ -17,7 +17,6 @@ function SEO({ description, keywords, lang, title }: Props) {
         site {
           siteMetadata {
             title
-            description
             author
           }
         }
@@ -26,7 +25,7 @@ function SEO({ description, keywords, lang, title }: Props) {
   )
 
   const parsedSiteTitle = site.siteMetadata.title
-  const parsedDescripton = description || site.siteMetadata.description
+  const parsedDescripton = description
   const parsedKeywords = keywords
   const parsedAuthor = site.siteMetadata.author
 
