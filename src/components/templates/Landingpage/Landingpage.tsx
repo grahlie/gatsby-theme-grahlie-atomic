@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import SEO from '../../molecules/Seo'
 import Header from '../../organisms/Header'
 import Content from '../../organisms/Content'
 import Footer from '../../organisms/Footer'
@@ -12,7 +13,7 @@ interface Props {
 
 const Landingpage = ({ children }: Props) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query IndexQuery {
       site {
         siteMetadata {
           title
@@ -34,10 +35,24 @@ const Landingpage = ({ children }: Props) => {
     }
   `)
 
+  // TODO: Fetch from pages folder
+  const links = [{ href: '/', title: 'Home' }]
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <Content>{children}</Content>
+      <SEO 
+        title='Home'
+        siteTitle={data.site.siteMetadata.title}
+        author={data.site.siteMetadata.author}
+      />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        logotype={data.placeholderImage.childImageSharp.fluid}
+        links={links}
+      />
+      <Content>
+        {children}
+      </Content>
       <Footer
         siteTitle={data.site.siteMetadata.title}
         siteContact={data.site.siteMetadata.contact}

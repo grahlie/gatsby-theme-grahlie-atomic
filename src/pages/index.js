@@ -4,7 +4,6 @@ import * as Icon from 'react-feather'
 import Landingpage from '../components/templates/Landingpage'
 
 import Hero from '../components/molecules/Hero'
-import SEO from '../components/molecules/Seo'
 
 import Heading from '../components/atoms/Heading'
 import Paragraph from '../components/atoms/Paragraph'
@@ -17,7 +16,6 @@ const IndexPage = () => {
 
     return (
         <Landingpage>
-            <SEO title="Home" />
 
             <Heading variant='Hero'>Hi peopless</Heading>
             <Heading variant='One'>Hi peopless</Heading>

@@ -1,9 +1,7 @@
 import React from "react"
 import { Styled } from 'theme-ui'
 
-
 import Landingpage from '../components/templates/Landingpage'
-
 
 const ThemeUI = () => (
   <Landingpage>

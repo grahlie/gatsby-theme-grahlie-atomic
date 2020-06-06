@@ -1,43 +1,27 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
 
 interface Props {
-  description: string | null
-  keywords: string | null
-  lang: string | null
-  meta: object | null
-  title: string | null
+  title: string
+  siteTitle: string
+  author: string
+  description?: string
+  keywords?: string
+  lang?: string
 }
 
-function SEO({ description, keywords, lang, title }: Props) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            author
-          }
-        }
-      }
-    `
-  )
-
-  const parsedSiteTitle = site.siteMetadata.title
-  const parsedDescripton = description
-  const parsedKeywords = keywords
-  const parsedAuthor = site.siteMetadata.author
+function SEO({ description, keywords, lang, title, siteTitle, author }: Props) {
+  lang = lang ? lang : 'en'
 
   return (
     <Helmet
       htmlAttributes={{ lang }}
       title={title}
-      titleTemplate={`${title} - ${parsedSiteTitle}`}
+      titleTemplate={`${title} - ${siteTitle}`}
       meta={[
         {
           name: `description`,
-          content: parsedDescripton,
+          content: description,
         },
         {
           property: `og:title`,
@@ -45,7 +29,7 @@ function SEO({ description, keywords, lang, title }: Props) {
         },
         {
           property: `og:description`,
-          content: parsedDescripton,
+          content: description,
         },
         {
           property: `og:type`,
@@ -57,7 +41,7 @@ function SEO({ description, keywords, lang, title }: Props) {
         },
         {
           name: `twitter:creator`,
-          content: parsedAuthor,
+          content: author,
         },
         {
           name: `twitter:title`,
@@ -65,11 +49,11 @@ function SEO({ description, keywords, lang, title }: Props) {
         },
         {
           name: `twitter:description`,
-          content: parsedDescripton,
+          content: description,
         },
         {
           name: 'keywords',
-          content: parsedKeywords,
+          content: keywords,
         },
         {
           name: 'viewport',
