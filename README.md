@@ -53,6 +53,7 @@
 ## 🧐 What's inside?
 
 A quick look at the components folder
+
     .
     ├── atoms
     ├── molecules
