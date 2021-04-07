@@ -12,7 +12,7 @@ interface StyledProps extends ITheme {
   fontSize: number
 }
 
-export const StyledParagraph = styled.p<StyledProps>`
+const StyledParagraph = styled.p<StyledProps>`
   color: ${(props: StyledProps) => props.theme.colors.text};
   font-family: ${(props: StyledProps) => props.theme.fonts.body};
   font-size: ${(props: StyledProps) => props.theme.fontSizes[props.fontSize]}px;

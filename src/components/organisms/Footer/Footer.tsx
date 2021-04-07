@@ -20,11 +20,11 @@ const Footer = ({ siteTitle, siteContact }: Props) => {
     <StyledFooter theme={themeFunc()}>
       <Paragraph variant="Small">
         © {new Date().getFullYear()} - {siteTitle} <br />
-        <address>
-          mail: {siteContact.email} - phone: {siteContact.phone} <br />
-          address: {siteContact.address} - org.nr: {siteContact.orgnr}
-        </address>
       </Paragraph>
+      <address>
+        mail: {siteContact.email} - phone: {siteContact.phone} <br />
+        address: {siteContact.address} - org.nr: {siteContact.orgnr}
+      </address>
     </StyledFooter>
   )
 }

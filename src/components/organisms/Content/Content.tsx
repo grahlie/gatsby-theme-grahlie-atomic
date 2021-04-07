@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { themeFunc, ITheme } from '../../../theme'
 
 interface ComponentProps {
-  children: object
+  children?: object
 }
 
 const Content = ({ children }: ComponentProps) => {

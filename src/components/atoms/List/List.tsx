@@ -18,30 +18,30 @@ const List = ({ open, variant, children }: Props) => {
   switch (variant) {
     case 'Unorded':
       ListComponent = (theme: ITheme, open: boolean, children: object) => (
-        <StylerdUnordedList open={open} theme={theme}>
+        <UnorderedList open={open} theme={theme}>
           {children}
-        </StylerdUnordedList>
+        </UnorderedList>
       )
       break
     case 'Odered':
       ListComponent = (theme: ITheme, open: boolean, children: object) => (
-        <StylerdOrdedList open={open} theme={theme}>
+        <OrderedList open={open} theme={theme}>
           {children}
-        </StylerdOrdedList>
+        </OrderedList>
       )
       break
     case 'Navigation':
       ListComponent = (theme: ITheme, open: boolean, children: object) => (
-        <StyledNavigation open={open} theme={theme}>
+        <NavigationList open={open} theme={theme}>
           {children}
-        </StyledNavigation>
+        </NavigationList>
       )
       break
     default:
       ListComponent = (theme: ITheme, open: boolean, children: object) => (
-        <StylerdUnordedList open={open} theme={theme}>
+        <UnorderedList open={open} theme={theme}>
           {children}
-        </StylerdUnordedList>
+        </UnorderedList>
       )
       break
   }
@@ -49,9 +49,7 @@ const List = ({ open, variant, children }: Props) => {
   return ListComponent(themeFunc(), open, children)
 }
 
-export default List
-
-const StylerdUnordedList = styled.ul<StyledListProps>`
+const UnorderedList = styled.ul<StyledListProps>`
   display: block;
   list-style-position: outside;
   list-style-image: none;
@@ -63,7 +61,7 @@ const StylerdUnordedList = styled.ul<StyledListProps>`
   width: 100%;
 `
 
-const StylerdOrdedList = styled.ul<StyledListProps>`
+const OrderedList = styled.ol<StyledListProps>`
   display: block;
   list-style-position: outside;
   list-style-image: none;
@@ -75,7 +73,7 @@ const StylerdOrdedList = styled.ul<StyledListProps>`
   width: 100%;
 `
 
-const StyledNavigation = styled.ul<StyledListProps>`
+const NavigationList = styled.ul<StyledListProps>`
   background: ${(props: ITheme) => props.theme.colors.primary};
   border: none;
   display: flex;
@@ -94,3 +92,10 @@ const StyledNavigation = styled.ul<StyledListProps>`
   width: 100vw;
   z-index: 999;
 `
+
+export {
+  List as default,
+  UnorderedList,
+  OrderedList,
+  NavigationList
+}

@@ -4,8 +4,6 @@ import { Link } from 'gatsby'
 
 import { themeFunc, ITheme } from '../../../theme'
 
-import { StyledParagraph } from '../Paragraph'
-
 interface Props {
   to: string
   children: object
@@ -20,8 +18,6 @@ const LinkItem = ({ to, color, children }: Props) => (
     {children}
   </StyledLink>
 )
-
-export default LinkItem
 
 const StyledLink = styled(Link)<StyledProps>`
   font-family: ${(props: StyledProps) => props.theme.fonts.body};
@@ -50,3 +46,8 @@ const StyledLink = styled(Link)<StyledProps>`
     outline-width: 0;
   }
 `
+
+export {
+  LinkItem as default,
+  StyledLink
+}

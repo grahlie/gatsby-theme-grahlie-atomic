@@ -1,64 +1,99 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from "react"
+import { graphql } from "gatsby"
+import { FluidObject } from 'gatsby-image'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-import SEO from '../../molecules/Seo'
 import Header from '../../organisms/Header'
 import Content from '../../organisms/Content'
 import Footer from '../../organisms/Footer'
+import SEO from '../../molecules/Seo'
 import '../normalize.css'
 
 interface Props {
-  children: object
-}
-
-const Landingpage = ({ children }: Props) => {
-  const data = useStaticQuery(graphql`
-    query IndexQuery {
-      site {
-        siteMetadata {
-          title
-          contact {
-            email
-            phone
-            address
-            orgnr
-          }
+  data: {
+    mdx: {
+      frontmatter: {
+        title: string
+      },
+      body: string
+    },
+    site: {
+      title: string,
+      siteMetadata: {
+        title: string,
+        author: string,
+        contact: {
+          email: string
+          phone: string
+          address: string
+          orgnr: string
         }
       }
-      placeholderImage: file(relativePath: { eq: "logotype.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid
-          }
-        }
+    },
+    placeholderImage: {
+      childImageSharp:{
+        fluid: FluidObject
       }
     }
-  `)
+  }
+}
+
+export default function Template({ data } : Props) {
+  const { mdx, site, placeholderImage } = data
+  const { frontmatter, body } = mdx
 
   // TODO: Fetch from pages folder
   const links = [{ href: '/', title: 'Home' }]
-
+  
   return (
     <>
       <SEO 
-        title='Home'
-        siteTitle={data.site.siteMetadata.title}
-        author={data.site.siteMetadata.author}
+        title={frontmatter.title}
+        siteTitle={site.siteMetadata.title}
+        author={site.siteMetadata.author}
       />
       <Header
-        siteTitle={data.site.siteMetadata.title}
-        logotype={data.placeholderImage.childImageSharp.fluid}
+        siteTitle={site.siteMetadata.title}
+        logotype={placeholderImage.childImageSharp.fluid}
         links={links}
       />
       <Content>
-        {children}
+        <MDXRenderer>{body}</MDXRenderer>
       </Content>
       <Footer
-        siteTitle={data.site.siteMetadata.title}
-        siteContact={data.site.siteMetadata.contact}
+        siteTitle={site.siteMetadata.title}
+        siteContact={site.siteMetadata.contact}
       />
     </>
   )
 }
 
-export default Landingpage
+export const pageQuery = graphql`
+  query($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      id
+      body
+      frontmatter {
+        title
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        contact {
+          email
+          phone
+          address
+          orgnr
+        }
+      }
+    }
+    placeholderImage: file(relativePath: { eq: "logotype.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

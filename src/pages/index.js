@@ -15,7 +15,7 @@ const IndexPage = () => {
     const theme = {theme: themeFunc()}
 
     return (
-        <Landingpage>
+        <>
 
             <Heading variant='Hero'>Hi peopless</Heading>
             <Heading variant='One'>Hi peopless</Heading>
@@ -59,7 +59,7 @@ const IndexPage = () => {
             <Icon.Box color={theme.theme.colors.primary} />
             <Icon.Briefcase color={theme.theme.colors.primary} />
             <Icon.Calendar color={theme.theme.colors.primary} />
-        </Landingpage>
+        </>
     )
 }
 

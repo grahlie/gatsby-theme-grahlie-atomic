@@ -55,8 +55,6 @@ const Heading = ({ variant, children }: Props) => {
   return HeaderComponent(themeFunc(), children)
 }
 
-export default Heading
-
 const commonStyles = css`
   margin: 0;
   padding: 0;
@@ -158,3 +156,14 @@ const Six = styled.h6<ITheme>`
         font-size: ${(props: ITheme) => props.theme.fontSizes[0]}px;
     } 
 `
+
+export {
+  Heading as default,
+  Hero,
+  One,
+  Two,
+  Three,
+  Four,
+  Five,
+  Six
+}
